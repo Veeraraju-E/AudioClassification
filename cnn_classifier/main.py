@@ -10,7 +10,7 @@ from torchvision import models, transforms as T
 sys.path.append('../')
 sys.path.append('../../')
 
-from data.dataset import AudioDataset, AudioDatasetSpectogram, precompute_spectrograms
+from data.dataset import AudioDataset, AudioDatasetSpectrogram
 from model import AudioClassifierTimeDomain
 from utils import evaluate 
 
@@ -111,7 +111,7 @@ def main():
             nn.Dropout(),
             nn.Linear(500, 50)  # ESC50
         )
-        dataset_class = AudioDatasetSpectogram
+        dataset_class = AudioDatasetSpectrogram
         # precompute spectrograms if using freq domain -> do it once
         # for split in ['train', 'valid', 'test']:
         #     precompute_spectrograms(os.path.join(ROOT_DIR, split))

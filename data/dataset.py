@@ -53,7 +53,7 @@ def precompute_spectrograms(path, dpi=50):
         plt.close()
 
 # Now, simply load images
-class AudioDatasetSpectogram(Dataset):
+class AudioDatasetSpectrogram(Dataset):
     def __init__(self, root_dir, dpi=50, transforms=None):
         super().__init__()
         files = Path(root_dir).glob(f'spec_{dpi}*.wav.png')
@@ -85,9 +85,9 @@ if __name__ == "__main__":
     # precompute_spectrograms("../audio/test", dpi=50)
     # precompute_spectrograms("../audio/valid", dpi=50)
     # Now, load spectrograms as images directly
-    train_dataset_mel_specs = AudioDatasetSpectogram("../audio/train")
-    valid_dataset_mel_specs = AudioDatasetSpectogram("../audio/valid")
-    test_dataset_mel_specs = AudioDatasetSpectogram("../audio/test")
+    train_dataset_mel_specs = AudioDatasetSpectrogram("../audio/train")
+    valid_dataset_mel_specs = AudioDatasetSpectrogram("../audio/valid")
+    test_dataset_mel_specs = AudioDatasetSpectrogram("../audio/test")
 
     # toy sample
     tensor, label = train_dataset_mel_specs[0]

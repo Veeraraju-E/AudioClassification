@@ -11,7 +11,7 @@ sys.path.append('../../')
 
 class AudioClassifierTimeDomain(nn.Module):
     """
-    Classifier built for log-spectograms in the time-domain
+    Classifier built for log-spectrograms in the time-domain
     Expected input tensors of [B, 1, num_timesteps]
     """
     def __init__(self, num_classes=50):
