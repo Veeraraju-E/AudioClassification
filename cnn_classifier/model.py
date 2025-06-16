@@ -56,12 +56,3 @@ if __name__ == "__main__":
     print(f"Input shape: {x.shape}")
     print(f"Output shape: {output.shape}")  # [B, 50]
 
-
-class AudioClassifierFreqDomain(nn.Module):
-    """
-    Classifier built for log-spectograms in the time-domain
-    Expected input tensors of [B, C, H, W]
-    """
-    def __init__(self, num_classes):
-        super(AudioClassifierFreqDomain).__init__()
-        

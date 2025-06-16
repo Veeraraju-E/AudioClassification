@@ -13,11 +13,12 @@ class AudioDataset(Dataset):
     """
     Loading audio data from the time domain 
     """
-    def __init__(self, root_dir):
+    def __init__(self, root_dir, transforms=None):
         # decide type of audio files - .wav/.flac
         files = Path(root_dir).glob("*.wav")
         self.items = [(f, int(f.name.split("-")[-1].replace(".wav", ""))) for f in files]   # file, class
         self.length = len(self.items)
+        self.transforms = transforms
 
     def __getitem__(self, idx):
         filename, label = self.items[idx]
